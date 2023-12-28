@@ -16,10 +16,11 @@ return new class extends Migration
             $table->string('name',30);
             $table->string('email',30);
             $table->string('password',20);
+            $table->timestamps();
         });
     }
 
-    /*
+    /**
      * Reverse the migrations.
      */
     public function down(): void

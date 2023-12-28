@@ -31,3 +31,5 @@ Route::get('/registeration',[registrationcontroller::class,'registration']);
 
 Route::post('/registeration',[registrationcontroller::class,'create']);
 
+Route::get('/studentview',[registrationcontroller::class,'studentview']);
+
