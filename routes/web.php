@@ -33,3 +33,7 @@ Route::post('/registeration',[registrationcontroller::class,'create']);
 
 Route::get('/studentview',[registrationcontroller::class,'studentview']);
 
+Route::get('/studentdelete/{id}',[registrationcontroller::class,'Delete'])->name('studentdelete');
+
+Route::get('/studentedit/{id}',[registrationcontroller::class,'Edit'])->name('studentedit');
+

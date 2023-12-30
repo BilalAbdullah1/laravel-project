@@ -7,18 +7,20 @@ use App\Models\studentmodel;
 
 class registrationcontroller extends Controller
 {
-    public function registration(){
+    public function registration()
+    {
         return view('registration');
     }
     // public function create(Request $request){
     //     print_r($request-> all());
     //     return view('registraion');
     // }
-    public function create(Request $request){
+    public function create(Request $request)
+    {
         // print_r($request->all());
-        $request-> validate([
+        $request->validate([
             'email' => 'required | email',
-            'name'=> 'required',
+            'name' => 'required',
             'password' => 'required'
         ]);
         $std_data = new studentmodel();
@@ -31,9 +33,26 @@ class registrationcontroller extends Controller
         $std_data->save();
         return redirect('/registration');
     }
-    public function studentview(){
+    public function studentview()
+    {
         $std_data = studentmodel::all();
         $std = compact(['std_data']);
         return view('student-view')->with($std);
     }
+
+    public function Delete($id)
+    {
+        $user_data = studentmodel::find($id);
+        if (!is_null($user_data)) {
+            $user_data->delete();
+            return redirect('studentview');
+        } else {
+            return redirect('studentview');
+        }
+    }
+    public function Edit($id){
+        $user_data = studentmodel::find($id);
+        return view('update')->with(['user_data' => $user_data]);
+    }
+    
 }
