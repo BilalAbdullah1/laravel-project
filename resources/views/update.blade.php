@@ -123,7 +123,7 @@ form .signup-link a:hover{
     <div class="container">
       <div class="wrapper">
         <div class="title"><span>Registration Form</span></div>
-        <form action="{{url('/')}}/registeration" method="POST">
+        <form action="{{url('/')}}/std/update/{{$user_data ->id}}" method="POST">
             @csrf
           <div class="row">
             <i class="fas fa-user"></i>

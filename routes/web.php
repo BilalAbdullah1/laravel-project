@@ -37,3 +37,5 @@ Route::get('/studentdelete/{id}',[registrationcontroller::class,'Delete'])->name
 
 Route::get('/studentedit/{id}',[registrationcontroller::class,'Edit'])->name('studentedit');
 
+Route::post('/std/update/{id}',[registrationcontroller::class,'update'])->name('studentupdate');
+

@@ -31,7 +31,7 @@ class registrationcontroller extends Controller
         $std_data->email = $request['email'];
         $std_data->password = $request['password'];
         $std_data->save();
-        return redirect('/registration');
+        return redirect('/registeration');
     }
     public function studentview()
     {
@@ -54,5 +54,12 @@ class registrationcontroller extends Controller
         $user_data = studentmodel::find($id);
         return view('update')->with(['user_data' => $user_data]);
     }
-    
+    public function update($id,Request $request) {
+        $user_data = studentmodel::find($id);
+        $user_data->name = $request['name'];
+        $user_data->email = $request['email'];
+        $user_data->password = $request['password'];
+        $user_data-> save();
+        return redirect('studentview');
+    }  
 }

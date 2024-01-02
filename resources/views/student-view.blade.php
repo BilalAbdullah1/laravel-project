@@ -8,7 +8,9 @@
     <title>Document</title>
 </head>
 <body>
-    <div class="container mt-5"> 
+  <div class="container mt-5"> 
+    <h1 class="text-center">REGISTRATION</h1>
+  
     <table class="table container">
         <thead>
           <tr>
@@ -18,17 +20,15 @@
           </tr>
         </thead>
         <tbody>
+          @foreach ($std_data as $item)
           <tr>
-
-            @foreach ($std_data as $item)
-                
             <th scope="row">{{$item->id}}</th>
             <td>{{$item->name}}</td>
             <td>{{$item->email}}</td>
             <td><a href="{{route('studentdelete',['id' => $item ->id])}}" class="btn btn-primary">DElETE</a></td>
             <td><a href="{{route('studentedit',['id' => $item ->id])}}" class="btn btn-success">EDIT</a></td>
-        </tr>
-        @endforeach
+          </tr>
+          @endforeach
       </tbody>
     </table>
   </div>
